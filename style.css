@@ -1432,3 +1432,85 @@ ul {
     text-align: center !important;
 }
 
+/* 3-COLUMN SYMMETRICAL GRID SYSTEM */
+.works-grid, .books-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+@media screen and (max-width: 992px) {
+    .works-grid, .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .works-grid, .books-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ACTION BUTTONS & RESOURCE DOWNLOAD BAR */
+.modal-download-bar {
+    margin: 16px 0 24px 0;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+    border-radius: 8px;
+    border: 1px solid #fecdd3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(185, 28, 28, 0.25);
+    transition: all 0.25s ease;
+}
+
+.btn-download:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(185, 28, 28, 0.35);
+    color: #ffffff !important;
+}
+
+.video-btn-box {
+    margin: 20px 0;
+}
+
+.btn-video {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #f8fafc !important;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.2);
+    transition: all 0.25s ease;
+}
+
+.btn-video:hover {
+    background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+    border-color: #b91c1c;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(185, 28, 28, 0.3);
+}
+
+

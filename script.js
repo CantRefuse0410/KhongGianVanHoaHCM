@@ -60,12 +60,22 @@ function initModal() {
     }
 }
 
-function openModal(title, htmlContent) {
+function openModal(title, htmlContent, extraTopHtml = '') {
     if (modal && modalBody) {
         // Loại bỏ các đoạn văn bản trống, thẻ &nbsp; và xuống dòng dư thừa
         let cleanedContent = (htmlContent || '')
             .replace(/<p>\s*(?:&nbsp;|<br\s*\/?>)*\s*<\/p>/gi, '')
             .replace(/(?:<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Chuẩn hóa link video thô YouTube thành nút bấm Action Button chuyên nghiệp
+        cleanedContent = cleanedContent.replace(
+            /<p>\s*(?:<strong>)?\*?Video minh họa:?(?:<\/strong>)?\s*<\/p>\s*<p>\s*(?:<strong>)?<a href="([^"]+)"[^>]*>[^<]*<\/a>(?:<\/strong>)?\s*<\/p>/gi,
+            '<div class="video-btn-box"><a href="$1" target="_blank" rel="noopener noreferrer" class="btn-video"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg> 🎬 Xem Video Minh Họa Lịch Sử</a></div>'
+        );
+        cleanedContent = cleanedContent.replace(
+            /<a href="(https?:\/\/(?:www\.)?youtube\.com\/[^"]+)"[^>]*>(https?:\/\/[^<]+)<\/a>/gi,
+            '<a href="$1" target="_blank" rel="noopener noreferrer" class="btn-video"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg> 🎬 Xem Video Minh Họa Lịch Sử</a>'
+        );
 
         const upperTitle = (title || '').toUpperCase();
         const upperHtml = (htmlContent || '').toUpperCase();
@@ -76,7 +86,7 @@ function openModal(title, htmlContent) {
                          upperHtml.includes('LỜI KÊU GỌI TỔ QUỐC') ||
                          upperHtml.includes('NHẬT KÝ TRONG TÙ');
 
-        let bodyHtml = `<h2>${title}</h2>` + cleanedContent;
+        let bodyHtml = `<h2>${title}</h2>` + (extraTopHtml || '') + cleanedContent;
         if (isCentered) {
             bodyHtml = `<div class="doc-text-center">${bodyHtml}</div>`;
         }
@@ -94,7 +104,28 @@ window.openDocModal = function(category, index) {
         if (category === 'loiDay') {
             title = "Lời dạy của Chủ tịch Hồ Chí Minh";
         }
-        openModal(title, item.html);
+
+        let downloadHtml = '';
+        let fileUrl = item.fileUrl;
+        if (!fileUrl && item.rawName) {
+            if (category === 'tacPham') fileUrl = 'assets/docs/tac-pham/' + item.rawName + '.docx';
+            else if (category === 'hanhTrinh') fileUrl = 'assets/docs/hanh-trinh/' + item.rawName + '.docx';
+            else if (category === 'loiDay') fileUrl = 'assets/docs/loi-day/' + item.rawName + '.docx';
+        }
+        
+        if (fileUrl) {
+            downloadHtml = `<div class="modal-download-bar">
+                <a href="${fileUrl}" download class="btn-download">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                    </svg>
+                    Tải về tài liệu văn bản gốc (.docx)
+                </a>
+            </div>`;
+        }
+
+        openModal(title, item.html, downloadHtml);
     }
 }
 
