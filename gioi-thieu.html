@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu - Không Gian Văn Hóa Hồ Chí Minh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo-group">
+                    <img src="TrangChu/Logo.jpg" alt="Logo Trường" class="school-logo-img" onerror="this.style.display='none'">
+                </div>
+                <div class="brand-text-group">
+                    <h1 class="brand-title">ĐẢNG BỘ TRƯỜNG ĐẠI HỌC VĂN HIẾN</h1>
+                    <span class="brand-subtitle">CHI BỘ SINH VIÊN 4</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Trang chủ</a>
+                <a href="gioi-thieu.html" class="active">Giới thiệu</a>
+                <a href="hanh-trinh.html">Hành trình theo dấu chân Bác</a>
+                <a href="tac-pham.html">Tác phẩm & Sách</a>
+                <a href="tu-tuong.html">Tư tưởng & Lời dạy</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-banner">
+        <div class="container">
+            <h1 class="page-banner-title">GIỚI THIỆU</h1>
+            <p class="page-banner-desc">Mục đích và ý nghĩa thành lập Không gian Văn hóa Hồ Chí Minh - Chi bộ Sinh viên 4</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="gioi-thieu" class="section light-section intro-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Sứ Mệnh & Ý Nghĩa</h2>
+                    <p class="section-desc">Bồi dưỡng bản lĩnh, nhân cách và khát vọng cống hiến cho thế hệ trẻ</p>
+                </div>
+                <div class="intro-card-box">
+                    <div class="intro-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <blockquote class="intro-quote">
+                        “Không gian văn hóa Hồ Chí Minh của chi bộ sinh viên 4 nhằm giáo dục tư tưởng, đạo đức, phong cách Bác và bồi dưỡng bản lĩnh, nhân cách, khát vọng cống hiến cho thế hệ trẻ”
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>Đảng Bộ Trường<br>Đại Học Văn Hiến</h3>
+                <p>Một dự án đầy tâm huyết của sinh viên.</p>
+            </div>
+            <div class="footer-info">
+                <p><strong>Đơn vị thực hiện:</strong> Chi bộ Sinh viên 4</p>
+                <p><strong>Phiên bản:</strong> 1.0 (Trực tuyến)</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Chi bộ Sinh viên 4. Tự hào tiếp bước truyền thống.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Container -->
+    <div id="doc-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js" type="module"></script>
+</body>
+</html>

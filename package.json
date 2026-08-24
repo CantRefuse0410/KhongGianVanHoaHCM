@@ -1,0 +1,16 @@
+{
+  "name": "khonggianhcm",
+  "version": "1.0.0",
+  "description": "Hướng dẫn ngắn để bắt đầu phát triển:",
+  "main": "generate_js.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "mammoth": "^1.12.0"
+  }
+}

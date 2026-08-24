@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tư Tưởng & Lời Dạy - Không Gian Văn Hóa Hồ Chí Minh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo-group">
+                    <img src="TrangChu/Logo.jpg" alt="Logo Trường" class="school-logo-img" onerror="this.style.display='none'">
+                </div>
+                <div class="brand-text-group">
+                    <h1 class="brand-title">ĐẢNG BỘ TRƯỜNG ĐẠI HỌC VĂN HIẾN</h1>
+                    <span class="brand-subtitle">CHI BỘ SINH VIÊN 4</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Trang chủ</a>
+                <a href="gioi-thieu.html">Giới thiệu</a>
+                <a href="hanh-trinh.html">Hành trình theo dấu chân Bác</a>
+                <a href="tac-pham.html">Tác phẩm & Sách</a>
+                <a href="tu-tuong.html" class="active">Tư tưởng & Lời dạy</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-banner">
+        <div class="container">
+            <h1 class="page-banner-title">TƯ TƯỞNG & GIAI ĐIỆU TỰ HÀO</h1>
+            <p class="page-banner-desc">Những lời dạy sâu sắc và những giai điệu đi cùng năm tháng</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="tu-tuong" class="section light-section">
+            <div class="container">
+                <div class="two-cols">
+                    <div class="col">
+                        <div class="content-block">
+                            <h3 class="block-title">Lời dạy của Chủ tịch Hồ Chí Minh</h3>
+                            <div class="quotes-container" id="quotes-container">
+                                <!-- Data will be injected via JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="content-block sticky-block">
+                            <h3 class="block-title">Giai điệu tự hào</h3>
+                            <div class="songs-list" id="songs-container">
+                                <!-- Data will be injected via JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>Đảng Bộ Trường<br>Đại Học Văn Hiến</h3>
+                <p>Một dự án đầy tâm huyết của sinh viên.</p>
+            </div>
+            <div class="footer-info">
+                <p><strong>Đơn vị thực hiện:</strong> Chi bộ Sinh viên 4</p>
+                <p><strong>Phiên bản:</strong> 1.0 (Trực tuyến)</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Chi bộ Sinh viên 4. Tự hào tiếp bước truyền thống.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Container -->
+    <div id="doc-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js" type="module"></script>
+</body>
+</html>
