@@ -1,0 +1,9 @@
+﻿# Ignore large media files exceeding GitHub 100MB file size limit
+*.mp4
+*.avi
+*.mkv
+*.mov
+
+# Ignore raw uploaded media folders
+CA KHÚC HÁT VỀ CHỦ TỊCH HCM*
+assets/ca-khuc/

@@ -17,9 +17,23 @@ const KGVH_DATA = {
     ],
     gocSuyNgam: "Thế hệ thanh niên ngày nay cần không ngừng học tập, trau dồi đạo đức, noi gương Chủ tịch Hồ Chí Minh vĩ đại.",
     baiHat: [
-        { ten: "Hồ Chí Minh đẹp nhất tên Người", nhacSi: "Trần Kiết Tường" },
-        { ten: "Bác Hồ một tình yêu bao la", nhacSi: "Thuận Yến" },
-        { ten: "Ca ngợi Hồ Chủ tịch", nhacSi: "Văn Cao" }
+        { ten: "Ai yêu Bác Hồ Chí Minh hơn các em nhi đồng", nhacSi: "Phong Nhã", file: "assets/ca-khuc/Ai yêu Bác Hồ Chí Minh hơn các em nhi đồng - Nhạc sĩ Phong Nhã.mp4" },
+        { ten: "Bác Hồ - Người cho em tất cả", nhacSi: "Hoàng Long, Hoàng Lân", file: "assets/ca-khuc/Bác Hồ - Người cho em tất cả - Nhạc sĩ Hoàng Long, Hoàng Lân.mp4" },
+        { ten: "Bác Hồ một tình yêu bao la", nhacSi: "Thuận Yến", file: "assets/ca-khuc/Bác Hồ một tình yêu bao la - Nhạc sĩ Thuận Yến.mp4" },
+        { ten: "Bác Hồ sống mãi với Tây Nguyên", nhacSi: "Lê Lôi", file: "assets/ca-khuc/Bác Hồ sống mãi với Tây Nguyên - Nhạc sĩ Lê Lôi.mp4" },
+        { ten: "Bác đang cùng chúng cháu hành quân", nhacSi: "Huy Thục", file: "assets/ca-khuc/Bác đang cùng chúng cháu hành quân - Nhạc sĩ Huy Thục.mp4" },
+        { ten: "Ca ngợi Hồ Chủ tịch", nhacSi: "Văn Cao", file: "assets/ca-khuc/Ca ngợi Hồ Chủ tịch - Nhạc sĩ Văn Cao.mp4" },
+        { ten: "Dấu chân phía trước", nhacSi: "Nhạc: Phạm Minh Tuấn, Thơ: Hồ Thi Ca", file: "assets/ca-khuc/Dấu chân phía trước - Nhạc Phạm Minh Tuấn, Thơ Hồ Thi Ca.mp4" },
+        { ten: "Hồ Chí Minh đẹp nhất tên Người", nhacSi: "Trần Kiết Tường", file: "assets/ca-khuc/Hồ Chí Minh đẹp nhất tên Người - Nhạc sĩ Trần Kiết Tường.mp4" },
+        { ten: "Lời Bác dặn trước lúc đi xa", nhacSi: "Trần Hoàn", file: "assets/ca-khuc/Lời Bác dặn trước lúc đi xa - Nhạc sĩ Trần Hoàn.mp4" },
+        { ten: "Miền Nam nhớ mãi ơn Người", nhacSi: "Nhạc: Lưu Cầu, Thơ: Trần Nhật Lam", file: "assets/ca-khuc/Miền Nam nhớ mãi ơn Người - Nhạc sĩ Lưu Cầu, Thơ Trần Nhật Lam.mp4" },
+        { ten: "Người là niềm tin tất thắng", nhacSi: "Chu Minh", file: "assets/ca-khuc/Người là niềm tin tất thắng - Nhạc sĩ Chu Minh.mp4" },
+        { ten: "Như có Bác Hồ trong ngày vui Đại thắng", nhacSi: "Phạm Tuyên", file: "assets/ca-khuc/Như có Bác Hồ trong ngày vui Đại thắng - Nhạc sĩ Phạm Tuyên.mp4" },
+        { ten: "Tiếng hát từ thành phố mang tên Người", nhacSi: "Cao Việt Bách, Đăng Trung", file: "assets/ca-khuc/Tiếng hát từ thành phố mang tên Người - Nhạc sĩ Cao Việt Bách, Đăng Trung.mp4" },
+        { ten: "Trông cây lại nhớ đến Người", nhacSi: "Đỗ Nhuận", file: "assets/ca-khuc/Trông cây lại nhớ đến Người - Nhạc sĩ Đỗ Nhuận.mp4" },
+        { ten: "Từ làng Sen", nhacSi: "Phạm Tuyên", file: "assets/ca-khuc/Từ làng Sen - Nhạc sĩ Phạm Tuyên.mp4" },
+        { ten: "Đêm nghe hát đò đưa nhớ Bác", nhacSi: "An Thuyên", file: "assets/ca-khuc/Đêm nghe hát đò đưa nhớ Bác - Nhạc sĩ An Thuyên.mp4" },
+        { ten: "Đêm qua em mơ gặp Bác Hồ", nhacSi: "Xuân Giao", file: "assets/ca-khuc/Đêm qua em mơ gặp Bác Hồ - Nhạc sĩ Xuân Giao.mp4" }
     ]
 };
 
@@ -60,6 +74,13 @@ function initModal() {
     }
 }
 
+function getYouTubeEmbedUrl(url) {
+    if (!url) return '';
+    const unescaped = url.replace(/&amp;/g, '&');
+    const match = unescaped.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=0&rel=0` : '';
+}
+
 function openModal(title, htmlContent, extraTopHtml = '') {
     if (modal && modalBody) {
         // Loại bỏ các đoạn văn bản trống, thẻ &nbsp; và xuống dòng dư thừa
@@ -67,14 +88,37 @@ function openModal(title, htmlContent, extraTopHtml = '') {
             .replace(/<p>\s*(?:&nbsp;|<br\s*\/?>)*\s*<\/p>/gi, '')
             .replace(/(?:<br\s*\/?>\s*){2,}/gi, '<br>');
 
-        // Chuẩn hóa link video thô YouTube thành nút bấm Action Button chuyên nghiệp
+        // Nhúng trực tiếp khung phát Video YouTube (Embedded Iframe) vào trang/modal - Loại bỏ hoàn toàn nút bấm
         cleanedContent = cleanedContent.replace(
-            /<p>\s*(?:<strong>)?\*?Video minh họa:?(?:<\/strong>)?\s*<\/p>\s*<p>\s*(?:<strong>)?<a href="([^"]+)"[^>]*>[^<]*<\/a>(?:<\/strong>)?\s*<\/p>/gi,
-            '<div class="video-btn-box"><a href="$1" target="_blank" rel="noopener noreferrer" class="btn-video"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg> 🎬 Xem Video Minh Họa Lịch Sử</a></div>'
+            /(?:<p>\s*(?:<strong>)?\*?\s*Video minh họa:?(?:<\/strong>)?\s*<\/p>\s*)?<p>\s*(?:<strong>)?<a href="([^"]+)"[^>]*>[\s\S]*?<\/a>(?:<\/strong>)?\s*<\/p>/gi,
+            (match, url) => {
+                const embedUrl = getYouTubeEmbedUrl(url);
+                if (embedUrl) {
+                    return `<div class="video-embed-block">
+                        <h4 class="video-embed-title">🎬 Video Minh Họa Lịch Sử:</h4>
+                        <div class="video-embed-box">
+                            <iframe src="${embedUrl}" title="Video minh họa lịch sử" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="video-embed-iframe"></iframe>
+                        </div>
+                    </div>`;
+                }
+                return match;
+            }
         );
+
+        // Fallback nhúng video cho các liên kết YouTube hoặc nút video còn lại
         cleanedContent = cleanedContent.replace(
-            /<a href="(https?:\/\/(?:www\.)?youtube\.com\/[^"]+)"[^>]*>(https?:\/\/[^<]+)<\/a>/gi,
-            '<a href="$1" target="_blank" rel="noopener noreferrer" class="btn-video"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg> 🎬 Xem Video Minh Họa Lịch Sử</a>'
+            /(?:<div class="video-btn-box">)?\s*<a [^>]*href="(https?:\/\/(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)[^"]+)"[^>]*>[\s\S]*?<\/a>\s*(?:<\/div>)?/gi,
+            (match, url) => {
+                const embedUrl = getYouTubeEmbedUrl(url);
+                if (embedUrl) {
+                    return `<div class="video-embed-block">
+                        <div class="video-embed-box">
+                            <iframe src="${embedUrl}" title="Video minh họa lịch sử" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="video-embed-iframe"></iframe>
+                        </div>
+                    </div>`;
+                }
+                return match;
+            }
         );
 
         const upperTitle = (title || '').toUpperCase();
@@ -333,15 +377,25 @@ function renderGocSuyNgam() {
 function renderBaiHat() {
     const container = document.getElementById('songs-container');
     if (!container) return;
-    const musicIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2"/><path fill-rule="evenodd" d="M9 3v10H8V3z"/><path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5z"/></svg>`;
+    const musicIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13s1.12-2 2.5-2 2.5.895 2.5 2"/><path fill-rule="evenodd" d="M6 3v10H5V3z"/><path d="M5 2.82a1 1 0 0 1 .804-.98l6-1.2A1 1 0 0 1 13 1.62V4.5L5 6.1z"/></svg>`;
     
     container.innerHTML = KGVH_DATA.baiHat.map(bh => `
         <div class="song-item">
-            <div class="song-icon">${musicIcon}</div>
-            <div class="song-info">
-                <h4>${bh.ten}</h4>
-                <p>Nhạc sĩ: ${bh.nhacSi}</p>
+            <div class="song-header-line">
+                <div class="song-icon">${musicIcon}</div>
+                <div class="song-info">
+                    <h4>${bh.ten}</h4>
+                    <p class="song-artist">Nhạc sĩ: ${bh.nhacSi}</p>
+                </div>
             </div>
+            ${bh.file ? `
+            <div class="song-player-box">
+                <video controls preload="metadata" class="song-media-player">
+                    <source src="${encodeURI(bh.file)}" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ phát media.
+                </video>
+            </div>
+            ` : ''}
         </div>
     `).join('');
 }
