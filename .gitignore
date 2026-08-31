@@ -1,3 +1,6 @@
 # Ignore temporary build logs and scratch
 scratch/
 *.log
+
+# Ignore raw uploaded folder
+CA KHÚC HÁT VỀ CHỦ TỊCH HCM*
