@@ -1,8 +1,8 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 const mammoth = require('mammoth');
 
-const base = 'c:\\Users\\thanh\\OneDrive\\Desktop\\KhonggianHCM';
+const base = __dirname;
 const assetsDocs = path.join(base, 'assets', 'docs');
 const assetsImgs = path.join(base, 'assets', 'images');
 

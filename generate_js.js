@@ -1,7 +1,7 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
-const base = 'c:\\Users\\thanh\\OneDrive\\Desktop\\KhonggianHCM';
+const base = __dirname;
 const mapping = JSON.parse(fs.readFileSync(path.join(base, 'mapping.json'), 'utf8'));
 
 // Format tacPham
