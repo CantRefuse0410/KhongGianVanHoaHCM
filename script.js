@@ -666,10 +666,19 @@ function renderBaiHat() {
             </div>
             ${bh.file ? `
             <div class="song-player-box">
-                <video controls preload="metadata" playsinline class="song-media-player">
+                <video controls preload="metadata" playsinline class="song-media-player" onerror="if(this.nextElementSibling) this.nextElementSibling.style.display='block'">
                     <source src="${encodeURI(bh.file)}" type="video/mp4">
                     Trình duyệt của bạn không hỗ trợ phát media.
                 </video>
+                <div class="song-fallback-box" style="display:none; margin-top:10px;">
+                    <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(bh.ten + ' ' + bh.nhacSi)}" target="_blank" rel="noopener noreferrer" class="btn-youtube-direct">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.3.1.3 6.113.3 6.113s0 5.713-.3 6.113a2.01 2.01 0 0 1-1.415 1.42c-1.123.302-5.288.332-6.11.335H8.051c-.822-.003-4.987-.033-6.11-.335A2.01 2.01 0 0 1 .526 14.282C.225 13.159.225 7.446.225 7.446s0-5.713.3-6.113A2.01 2.01 0 0 1 1.94 1.999c1.123-.302 5.288-.332 6.111-.335L8.051 2z"/>
+                            <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" fill="#fff"/>
+                        </svg>
+                        Mở bài hát trên YouTube
+                    </a>
+                </div>
             </div>
             ` : ''}
         </div>
