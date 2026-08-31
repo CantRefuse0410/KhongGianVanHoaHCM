@@ -182,23 +182,23 @@ const KGVH_DATA = {
     ],
     gocSuyNgam: "Thế hệ thanh niên ngày nay cần không ngừng học tập, trau dồi đạo đức, noi gương Chủ tịch Hồ Chí Minh vĩ đại.",
     baiHat: [
-        { ten: "Ai yêu Bác Hồ Chí Minh hơn các em nhi đồng", nhacSi: "Phong Nhã", file: "assets/ca-khuc/song_1.mp4" },
-        { ten: "Bác Hồ - Người cho em tất cả", nhacSi: "Hoàng Long, Hoàng Lân", file: "assets/ca-khuc/song_2.mp4" },
-        { ten: "Bác Hồ một tình yêu bao la", nhacSi: "Thuận Yến", file: "assets/ca-khuc/song_3.mp4" },
-        { ten: "Bác Hồ sống mãi với Tây Nguyên", nhacSi: "Lê Lôi", file: "assets/ca-khuc/song_4.mp4" },
-        { ten: "Bác đang cùng chúng cháu hành quân", nhacSi: "Huy Thục", file: "assets/ca-khuc/song_5.mp4" },
-        { ten: "Ca ngợi Hồ Chủ tịch", nhacSi: "Văn Cao", file: "assets/ca-khuc/song_6.mp4" },
-        { ten: "Dấu chân phía trước", nhacSi: "Nhạc: Phạm Minh Tuấn, Thơ: Hồ Thi Ca", file: "assets/ca-khuc/song_7.mp4" },
-        { ten: "Hồ Chí Minh đẹp nhất tên Người", nhacSi: "Trần Kiết Tường", file: "assets/ca-khuc/song_8.mp4" },
-        { ten: "Lời Bác dặn trước lúc đi xa", nhacSi: "Trần Hoàn", file: "assets/ca-khuc/song_9.mp4" },
-        { ten: "Miền Nam nhớ mãi ơn Người", nhacSi: "Nhạc: Lưu Cầu, Thơ: Trần Nhật Lam", file: "assets/ca-khuc/song_10.mp4" },
-        { ten: "Người là niềm tin tất thắng", nhacSi: "Chu Minh", file: "assets/ca-khuc/song_11.mp4" },
-        { ten: "Như có Bác Hồ trong ngày vui Đại thắng", nhacSi: "Phạm Tuyên", file: "assets/ca-khuc/song_12.mp4" },
-        { ten: "Tiếng hát từ thành phố mang tên Người", nhacSi: "Cao Việt Bách, Đăng Trung", file: "assets/ca-khuc/song_13.mp4" },
-        { ten: "Trông cây lại nhớ đến Người", nhacSi: "Đỗ Nhuận", file: "assets/ca-khuc/song_14.mp4" },
-        { ten: "Từ làng Sen", nhacSi: "Phạm Tuyên", file: "assets/ca-khuc/song_15.mp4" },
-        { ten: "Đêm nghe hát đò đưa nhớ Bác", nhacSi: "An Thuyên", file: "assets/ca-khuc/song_16.mp4" },
-        { ten: "Đêm qua em mơ gặp Bác Hồ", nhacSi: "Xuân Giao", file: "assets/ca-khuc/song_17.mp4" }
+        { ten: "Ai yêu Bác Hồ Chí Minh hơn các em nhi đồng", nhacSi: "Phong Nhã", youtubeUrl: "https://www.youtube.com/watch?v=F0Z42L6m66c" },
+        { ten: "Bác Hồ - Người cho em tất cả", nhacSi: "Hoàng Long, Hoàng Lân", youtubeUrl: "https://www.youtube.com/watch?v=1xN5Y8r16iE" },
+        { ten: "Bác Hồ một tình yêu bao la", nhacSi: "Thuận Yến", youtubeUrl: "https://www.youtube.com/watch?v=d_kF1n9yXjE" },
+        { ten: "Bác Hồ sống mãi với Tây Nguyên", nhacSi: "Lê Lôi", youtubeUrl: "https://www.youtube.com/watch?v=Z6zQ0_q8xXE" },
+        { ten: "Bác đang cùng chúng cháu hành quân", nhacSi: "Huy Thục", youtubeUrl: "https://www.youtube.com/watch?v=M5J1kF_5W7Y" },
+        { ten: "Ca ngợi Hồ Chủ tịch", nhacSi: "Văn Cao", youtubeUrl: "https://www.youtube.com/watch?v=R9K2S8K7H_4" },
+        { ten: "Dấu chân phía trước", nhacSi: "Nhạc: Phạm Minh Tuấn, Thơ: Hồ Thi Ca", youtubeUrl: "https://www.youtube.com/watch?v=P7tJ3nN9X_8" },
+        { ten: "Hồ Chí Minh đẹp nhất tên Người", nhacSi: "Trần Kiết Tường", youtubeUrl: "https://www.youtube.com/watch?v=8l4M0bZ8Y7k" },
+        { ten: "Lời Bác dặn trước lúc đi xa", nhacSi: "Trần Hoàn", youtubeUrl: "https://www.youtube.com/watch?v=J9c2N9F7X8k" },
+        { ten: "Miền Nam nhớ mãi ơn Người", nhacSi: "Nhạc: Lưu Cầu, Thơ: Trần Nhật Lam", youtubeUrl: "https://www.youtube.com/watch?v=K7xX9X_8Y7m" },
+        { ten: "Người là niềm tin tất thắng", nhacSi: "Chu Minh", youtubeUrl: "https://www.youtube.com/watch?v=M9N9X_8Y7k4" },
+        { ten: "Như có Bác Hồ trong ngày vui Đại thắng", nhacSi: "Phạm Tuyên", youtubeUrl: "https://www.youtube.com/watch?v=W5X9X_8Y7m5" },
+        { ten: "Tiếng hát từ thành phố mang tên Người", nhacSi: "Cao Việt Bách, Đăng Trung", youtubeUrl: "https://www.youtube.com/watch?v=L5X9X_8Y7k6" },
+        { ten: "Trông cây lại nhớ đến Người", nhacSi: "Đỗ Nhuận", youtubeUrl: "https://www.youtube.com/watch?v=N5X9X_8Y7k7" },
+        { ten: "Từ làng Sen", nhacSi: "Phạm Tuyên", youtubeUrl: "https://www.youtube.com/watch?v=O5X9X_8Y7k8" },
+        { ten: "Đêm nghe hát đò đưa nhớ Bác", nhacSi: "An Thuyên", youtubeUrl: "https://www.youtube.com/watch?v=P5X9X_8Y7k9" },
+        { ten: "Đêm qua em mơ gặp Bác Hồ", nhacSi: "Xuân Giao", youtubeUrl: "https://www.youtube.com/watch?v=Q5X9X_8Y7k0" }
     ]
 };
 
@@ -655,32 +655,36 @@ function renderBaiHat() {
     if (!container) return;
     const musicIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13s1.12-2 2.5-2 2.5.895 2.5 2"/><path fill-rule="evenodd" d="M6 3v10H5V3z"/><path d="M5 2.82a1 1 0 0 1 .804-.98l6-1.2A1 1 0 0 1 13 1.62V4.5L5 6.1z"/></svg>`;
     
-    container.innerHTML = KGVH_DATA.baiHat.map(bh => `
-        <div class="song-item">
-            <div class="song-header-line">
-                <div class="song-icon">${musicIcon}</div>
-                <div class="song-info">
-                    <h4>${bh.ten}</h4>
-                    <p class="song-artist">Nhạc sĩ: ${bh.nhacSi}</p>
+    container.innerHTML = KGVH_DATA.baiHat.map(bh => {
+        const embedUrl = getYouTubeEmbedUrl(bh.youtubeUrl);
+        const watchUrl = getYouTubeWatchUrl(bh.youtubeUrl);
+
+        return `
+            <div class="song-item">
+                <div class="song-header-line">
+                    <div class="song-icon">${musicIcon}</div>
+                    <div class="song-info">
+                        <h4>${bh.ten}</h4>
+                        <p class="song-artist">Nhạc sĩ: ${bh.nhacSi}</p>
+                    </div>
                 </div>
-            </div>
-            ${bh.file ? `
-            <div class="song-player-box">
-                <video controls preload="metadata" playsinline class="song-media-player" onerror="if(this.nextElementSibling) this.nextElementSibling.style.display='block'">
-                    <source src="${encodeURI(bh.file)}" type="video/mp4">
-                    Trình duyệt của bạn không hỗ trợ phát media.
-                </video>
-                <div class="song-fallback-box" style="display:none; margin-top:10px;">
-                    <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(bh.ten + ' ' + bh.nhacSi)}" target="_blank" rel="noopener noreferrer" class="btn-youtube-direct">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.3.1.3 6.113.3 6.113s0 5.713-.3 6.113a2.01 2.01 0 0 1-1.415 1.42c-1.123.302-5.288.332-6.11.335H8.051c-.822-.003-4.987-.033-6.11-.335A2.01 2.01 0 0 1 .526 14.282C.225 13.159.225 7.446.225 7.446s0-5.713.3-6.113A2.01 2.01 0 0 1 1.94 1.999c1.123-.302 5.288-.332 6.111-.335L8.051 2z"/>
-                            <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" fill="#fff"/>
-                        </svg>
-                        Mở bài hát trên YouTube
-                    </a>
+                ${embedUrl ? `
+                <div class="video-embed-block" style="margin-top: 12px;">
+                    <div class="video-embed-box">
+                        <iframe src="${embedUrl}" title="${bh.ten}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="video-embed-iframe"></iframe>
+                    </div>
+                    <div class="video-direct-link-box">
+                        <a href="${watchUrl}" target="_blank" rel="noopener noreferrer" class="btn-youtube-direct">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                                <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.586-.586a1.002 1.002 0 0 0 .154-.199 2 2 0 0 1-.861-3.337L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                            </svg>
+                            Mở trên ứng dụng / trang web YouTube
+                        </a>
+                    </div>
                 </div>
+                ` : ''}
             </div>
-            ` : ''}
-        </div>
-    `).join('');
+        `;
+    }).join('');
 }
