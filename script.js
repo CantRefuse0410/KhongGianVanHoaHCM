@@ -300,10 +300,11 @@ function openModal(title, htmlContent, extraTopHtml = '') {
             }
         );
 
-        // Fallback nhúng video cho các liên kết YouTube còn lại
+        // Fallback nhúng video cho các liên kết YouTube còn lại chưa được nhúng (bỏ qua liên kết btn-youtube-direct)
         cleanedContent = cleanedContent.replace(
-            /(?:<div class="video-btn-box">)?\s*<a [^>]*href="(https?:\/\/(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)[^"]+)"[^>]*>[\s\S]*?<\/a>\s*(?:<\/div>)?/gi,
+            /(?:<div class="video-btn-box">)?\s*<a (?:(?!btn-youtube-direct)[^>])*href="(https?:\/\/(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)[^"]+)"[^>]*>[\s\S]*?<\/a>\s*(?:<\/div>)?/gi,
             (match, url) => {
+                if (match.includes('btn-youtube-direct')) return match;
                 const embedUrl = getYouTubeEmbedUrl(url);
                 const watchUrl = getYouTubeWatchUrl(url);
                 if (embedUrl) {
@@ -322,20 +323,8 @@ function openModal(title, htmlContent, extraTopHtml = '') {
             }
         );
 
-        const upperTitle = (title || '').toUpperCase();
-        const upperHtml = (htmlContent || '').toUpperCase();
-        let isCentered = upperTitle.includes('LỜI KÊU GỌI ĐỒNG BÀO') ||
-                         upperTitle.includes('LỜI KÊU GỌI TỔ QUỐC') ||
-                         upperTitle.includes('NHẬT KÝ TRONG TÙ') ||
-                         upperHtml.includes('LỜI KÊU GỌI ĐỒNG BÀO') ||
-                         upperHtml.includes('LỜI KÊU GỌI TỔ QUỐC') ||
-                         upperHtml.includes('NHẬT KÝ TRONG TÙ');
-
         let hasHeading = /^<h[1-6]|<div class="doc-category/i.test(cleanedContent.trim());
         let bodyHtml = (hasHeading ? '' : `<h2>${title}</h2>`) + (extraTopHtml || '') + cleanedContent;
-        if (isCentered) {
-            bodyHtml = `<div class="doc-text-center">${bodyHtml}</div>`;
-        }
 
         modalBody.innerHTML = bodyHtml;
         modal.style.display = "block";
@@ -412,13 +401,26 @@ function getPlainText(html, maxLen) {
     const tmp = document.createElement('div');
     tmp.innerHTML = html;
     
-    // Loại bỏ bảng biểu khi trích xuất đoạn tóm tắt ngoài thẻ
+    // Loại bỏ bảng biểu khi trích xuất đoạn tóm tắt
     const tables = tmp.querySelectorAll('table');
     tables.forEach(t => t.remove());
 
+    // Thêm khoảng trắng xung quanh các thẻ block để tránh dính chữ giữa các đoạn (vd: MinhChủ -> Minh Chủ, vô giá.Các -> vô giá. Các)
+    const blocks = tmp.querySelectorAll('p, h1, h2, h3, h4, h5, h6, div, li, br');
+    blocks.forEach(b => {
+        b.insertAdjacentText('beforebegin', ' ');
+        b.insertAdjacentText('afterend', ' ');
+    });
+
     const text = (tmp.textContent || tmp.innerText || '').replace(/\s+/g, ' ').trim();
     if (!maxLen || text.length <= maxLen) return text;
-    return text.substring(0, maxLen).trimEnd() + '…';
+
+    let truncated = text.substring(0, maxLen);
+    const lastSpace = truncated.lastIndexOf(' ');
+    if (lastSpace > 0) {
+        truncated = truncated.substring(0, lastSpace);
+    }
+    return truncated.trimEnd() + '…';
 }
 
 function getTimelineTitle(ht) {
@@ -436,9 +438,9 @@ function renderTacPhamIntro() {
     const container = document.getElementById('tac-pham-intro');
     if (!container) return;
     if (introEntry && introEntry.html) {
-        // Lấy text thuần, hiển thị tối đa 600 ký tự
-        const introText = getPlainText(introEntry.html, 600);
-        container.innerHTML = `<p class="section-intro-text">${introText}</p>`;
+        // Loại bỏ thẻ h2 tiêu đề trùng lặp với tiêu đề section
+        const cleanHtml = introEntry.html.replace(/<h2[^>]*>[\s\S]*?<\/h2>/gi, '');
+        container.innerHTML = `<div class="section-intro-text">${cleanHtml}</div>`;
     } else {
         container.innerHTML = '';
     }
@@ -458,6 +460,12 @@ function renderTacPham() {
         <div class="card clickable-card" onclick="openDocModal('tacPham', ${realIndex})">
             <div class="card-year">${tp.nam || ''}</div>
             <h4 class="card-title">${tp.ten}</h4>
+            <div class="timeline-more-btn" style="margin-top: auto;">
+                <span>Xem chi tiết tác phẩm</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                </svg>
+            </div>
         </div>
     `;
     }).join('');
@@ -472,7 +480,6 @@ function renderSach() {
             <div class="book-content-box">
                 <h4 class="card-title">${s.ten}</h4>
                 <p class="book-author">Tác giả: ${s.tacGia}</p>
-                <p class="book-summary">${s.tomTat || ''}</p>
                 ${s.pdf ? `
                 <div class="book-action-box">
                     <a href="${encodeURI(s.pdf)}" target="_blank" rel="noopener noreferrer" class="btn-read-pdf">
@@ -573,8 +580,6 @@ function renderHanhTrinh() {
         }
 
         const stageTitle = getTimelineTitle(ht);
-        // Trích xuất tóm tắt ngắn gọn 160 ký tự từ nội dung HTML chi tiết
-        const summary = ht.html ? getPlainText(ht.html, 160) : (ht.content || '');
 
         return `
             <div class="timeline-item ${sideClass}">
@@ -582,7 +587,6 @@ function renderHanhTrinh() {
                 <div class="timeline-content clickable-card" onclick="openDocModal('hanhTrinh', ${i})">
                     <div class="timeline-year">${displayYear}</div>
                     ${stageTitle ? `<h4 class="timeline-stage-title">${stageTitle}</h4>` : ''}
-                    <p class="timeline-text">${summary}</p>
                     ${imgHtml}
                     <div class="timeline-more-btn">
                         <span>Xem chi tiết lịch sử</span>
@@ -629,12 +633,13 @@ function renderLoiDay() {
     const container = document.getElementById('quotes-container');
     if (!container) return;
 
-    container.innerHTML = KGVH_DATA.loiDay.map((ld, i) => {
+    container.innerHTML = KGVH_DATA.loiDay.map((ld) => {
         const { quote, source } = parseLoiDay(ld);
         const imgHtml = ld.img ? `<img src="${ld.img}" alt="${ld.title || 'Lời dạy'}" class="quote-card-img"/>` : '';
 
         return `
-            <div class="quote-card clickable-card" onclick="openDocModal('loiDay', ${i})">
+            <div class="quote-card">
+                <h4 class="quote-card-title">${ld.title || 'Lời dạy của Bác'}</h4>
                 ${imgHtml}
                 ${quote ? `<div class="quote-card-text">${quote}</div>` : ''}
                 ${source ? `<div class="quote-card-source">${source}</div>` : ''}

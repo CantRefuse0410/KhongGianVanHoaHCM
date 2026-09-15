@@ -514,6 +514,32 @@ ul {
     }
 }
 
+.section-intro-block {
+    margin-bottom: 30px;
+}
+
+.section-intro-text {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #1a1a1a;
+    background: #ffffff;
+    padding: 24px 28px;
+    border-radius: var(--radius-md);
+    border-left: 4px solid #db2777;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.section-intro-text p {
+    margin-bottom: 14px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.section-intro-text p:last-child {
+    margin-bottom: 0;
+}
+
 .block-title {
     font-family: var(--font-heading);
     font-size: 1.5rem;
@@ -597,9 +623,7 @@ ul {
 }
 
 .card-content {
-    font-family: var(--font-body);
-    margin-bottom: 15px;
-    color: #000000;
+    display: none;
 }
 
 .card-lesson {
@@ -669,10 +693,7 @@ ul {
 }
 
 .book-summary {
-    font-size: 0.92rem;
-    line-height: 1.6;
-    color: #334155;
-    margin-bottom: 16px;
+    display: none;
 }
 
 .book-action-box {
@@ -815,10 +836,7 @@ ul {
 }
 
 .timeline-text {
-    font-family: var(--font-body);
-    color: #000000;
-    font-size: 0.98rem;
-    line-height: 1.65;
+    display: none;
 }
 
 .timeline-img {
@@ -864,34 +882,52 @@ ul {
 }
 
 /* QUOTES */
-.quote-card {
-    background: #ffffff;
-    padding: 20px 22px;
-    border-radius: var(--radius-sm);
-    margin-bottom: 16px;
-    box-shadow: var(--shadow-sm);
-    border-left: 4px solid #db2777;
-    transition: var(--transition);
+.quotes-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
 }
 
-.quote-card:last-child {
+.quote-card {
+    background: #ffffff;
+    padding: 24px 20px;
+    border-radius: var(--radius-md);
     margin-bottom: 0;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(219, 39, 119, 0.2);
+    border-top: 4px solid #db2777;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
 }
 
 .quote-card:hover {
-    transform: translateX(5px);
-    box-shadow: var(--shadow-md);
-    border-left-color: #b91c1c;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(219, 39, 119, 0.18);
+    border-top-color: #b91c1c;
+}
+
+.quote-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    text-align: center;
 }
 
 .quote-card-img {
-    max-width: 85%;
+    max-width: 90%;
     max-height: 160px;
     width: auto;
     height: auto;
     object-fit: contain;
     border-radius: 8px;
-    margin: 0 auto 12px auto;
+    margin: 8px auto 12px auto;
     display: block;
     background: rgba(255, 255, 255, 0.5);
     padding: 4px;
@@ -899,11 +935,14 @@ ul {
 
 .quote-card-text {
     font-family: var(--font-body);
-    font-size: 1.025rem;
+    font-size: 0.98rem;
     font-weight: 600;
-    color: #000000;
+    color: #1a1a1a;
     line-height: 1.65;
+    margin-top: 8px;
     margin-bottom: 8px;
+    text-align: center;
+    width: 100%;
 }
 
 .quote-card-source {
@@ -911,8 +950,22 @@ ul {
     font-size: 0.85rem;
     color: #475569;
     font-style: italic;
-    text-align: right;
-    margin-top: 6px;
+    text-align: center;
+    margin-top: auto;
+    padding-top: 8px;
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+    .quotes-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .quotes-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* FORUM CARD */
@@ -1386,6 +1439,19 @@ ul {
     line-height: 1.8;
     color: #000000 !important;
     margin-bottom: 1.25em;
+}
+.modal-body p em {
+    display: block;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    background: #fff0f5;
+    padding: 16px 24px;
+    border-radius: 10px;
+    border-left: 4px solid #db2777;
+    margin: 16px 0;
+    color: #881337 !important;
+    text-align: center;
 }
 .modal-body strong, .modal-body b {
     font-weight: 700;
