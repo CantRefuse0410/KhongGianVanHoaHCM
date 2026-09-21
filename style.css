@@ -1907,5 +1907,37 @@ p, span, a, h1, h2, h3, h4, h5, h6, li, td, th {
     }
 }
 
+@media screen and (max-width: 480px) {
+    .song-item {
+        padding: 14px 12px;
+        gap: 10px;
+    }
+
+    .song-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 0.95rem;
+    }
+
+    .song-info h4 {
+        font-size: 0.98rem;
+    }
+
+    .song-artist {
+        font-size: 0.82rem;
+    }
+
+    .song-media-player {
+        max-height: 160px;
+        border-radius: 6px;
+    }
+
+    .modal-body img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
+
 
 

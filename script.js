@@ -198,7 +198,8 @@ const KGVH_DATA = {
         { ten: "Trông cây lại nhớ đến Người", nhacSi: "Đỗ Nhuận", file: "assets/ca-khuc/song_14.mp4" },
         { ten: "Từ làng Sen", nhacSi: "Phạm Tuyên", file: "assets/ca-khuc/song_15.mp4" },
         { ten: "Đêm nghe hát đò đưa nhớ Bác", nhacSi: "An Thuyên", file: "assets/ca-khuc/song_16.mp4" },
-        { ten: "Đêm qua em mơ gặp Bác Hồ", nhacSi: "Xuân Giao", file: "assets/ca-khuc/song_17.mp4" }
+        { ten: "Đêm qua em mơ gặp Bác Hồ", nhacSi: "Xuân Giao", file: "assets/ca-khuc/song_17.mp4" },
+        { ten: "Viếng Lăng Bác", nhacSi: "Nhạc: Hoàng Hiệp, Thơ: Viễn Phương", file: "assets/ca-khuc/song_18.mp4" }
     ]
 };
 
@@ -570,7 +571,7 @@ function renderHanhTrinh() {
 
     container.innerHTML = KGVH_DATA.hanhTrinh.map((ht, i) => {
         const sideClass = i % 2 === 0 ? 'left' : 'right';
-        const imgHtml = ht.img ? `<img src="${ht.img}" alt="${ht.year}" class="timeline-img"/>` : '';
+        const imgHtml = ht.img ? `<img src="${ht.img}" alt="${ht.year}" class="timeline-img" loading="lazy"/>` : '';
         
         let displayYear = ht.year || '';
         if (displayYear.includes('Giới thiệu')) {
@@ -635,7 +636,7 @@ function renderLoiDay() {
 
     container.innerHTML = KGVH_DATA.loiDay.map((ld) => {
         const { quote, source } = parseLoiDay(ld);
-        const imgHtml = ld.img ? `<img src="${ld.img}" alt="${ld.title || 'Lời dạy'}" class="quote-card-img"/>` : '';
+        const imgHtml = ld.img ? `<img src="${ld.img}" alt="${ld.title || 'Lời dạy'}" class="quote-card-img" loading="lazy"/>` : '';
 
         return `
             <div class="quote-card">
@@ -671,7 +672,7 @@ function renderBaiHat() {
             </div>
             ${bh.file ? `
             <div class="song-player-box">
-                <video controls preload="metadata" playsinline class="song-media-player">
+                <video controls preload="none" playsinline class="song-media-player">
                     <source src="${encodeURI(bh.file)}" type="video/mp4">
                     Trình duyệt của bạn không hỗ trợ phát media.
                 </video>

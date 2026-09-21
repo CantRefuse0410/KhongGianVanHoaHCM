@@ -5,14 +5,33 @@
   GIT_LFS_ENABLED = "true"
   GIT_LFS_FETCH_INCLUDE = "*.mp4"
 
+# Headers for MP4 Media Files (Enable Range Requests for Smooth Streaming)
+[[headers]]
+  for = "/assets/ca-khuc/*.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Accept-Ranges = "bytes"
+    Content-Type = "video/mp4"
+
 [[headers]]
   for = "/*.mp4"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    Accept-Ranges = "bytes"
     Content-Type = "video/mp4"
 
+# Static Asset Caching for Netlify CDN Optimization
 [[headers]]
-  for = "/assets/ca-khuc/*"
+  for = "/*.css"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-    Content-Type = "video/mp4"
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
